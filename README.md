@@ -1,2 +1,2 @@
 # pomegranate
-Free React Admin Dashboard Template
+Free React admin dashboard t with tailwindcss.
