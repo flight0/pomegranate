@@ -3,11 +3,28 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Dashboard from "./dashboard";
+import Signin from "./signin";
+import Table from './table';
+import Form from './form';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <React.StrictMode>
+      <Routes>
+        <Route path="/" element={<App />} >
+          <Route index element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/table" element={<Table />} />
+          <Route path="/form" element={<Form />} />
+        </Route>
+        <Route path="/sign" element={<Signin />} />
+      </Routes>
+    </React.StrictMode>
+  </BrowserRouter>
+  ,
   document.getElementById('root')
 );
 
