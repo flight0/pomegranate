@@ -9,6 +9,7 @@ import Dashboard from "./dashboard";
 import Signin from "./signin";
 import Table from './table';
 import Form from './form';
+import Chart from './chart';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -19,6 +20,7 @@ ReactDOM.render(
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/table" element={<Table />} />
           <Route path="/form" element={<Form />} />
+          <Route path="/chart" element={<Chart />} />
         </Route>
         <Route path="/sign" element={<Signin />} />
       </Routes>
