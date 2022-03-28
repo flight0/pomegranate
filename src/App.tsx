@@ -75,28 +75,6 @@ const navList = [
         "route": "chart"
       },
     ]
-  },
-  {
-    "title": "Chart",
-    "icon": <ChartPieIcon className="h-5 w-5 text-gray-100" />,
-    "subMenu" : [
-      {
-        "name": "chart",
-        "route": "chart"
-      },
-      {
-        "name": "chart",
-        "route": "chart"
-      },
-      {
-        "name": "chart",
-        "route": "chart"
-      },
-      {
-        "name": "chart",
-        "route": "chart"
-      },
-    ]
   }
 ]
 function App() {
@@ -114,8 +92,8 @@ function App() {
           )}
         </ul>
       </div>
-      <div className="w-full">
-        <div className="h-16 px-4 shadow-md flex justify-between items-center">
+      <div className="w-full bg-gray-200">
+        <div className="h-16 px-4 shadow-md flex justify-between items-center bg-white">
           <div>
             <MenuIcon className="h-6 w-6 text-cyan-900" />
           </div>
@@ -123,7 +101,7 @@ function App() {
             <img className="w-8 h-8 rounded-full" src={user.imageUrl} alt="avatar" />
           </div>
         </div>
-        <div className="m-10">
+        <div className="p-6">
           <Outlet />
         </div>
       </div>
