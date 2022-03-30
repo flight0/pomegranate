@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { } from "react";
 
 import { AreaChart, XAxis, YAxis, CartesianGrid, Tooltip, Area, ResponsiveContainer, Legend, BarChart, Bar } from "recharts";
 const data = [
@@ -65,7 +65,7 @@ const data = [
 ]
 
 const Dashboard = () => {
-    const [chartType, setChartTYpe] = useState('area');
+    // const [chartType, setChartTYpe] = useState('area');
     return (
         <>
             <div className="grid grid-cols-4 gap-4">

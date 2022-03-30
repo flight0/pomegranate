@@ -15,64 +15,64 @@ const navList = [
   {
     "title": "Home",
     "icon": <HomeIcon className="h-5 w-5 text-gray-100" />,
-    "subMenu" : [
+    "subMenu": [
       {
         "name": "dashboard",
-        "route": "dashboard"
+        "route": "/dashboard"
       }
     ]
   },
   {
     "title": "Form",
     "icon": <PencilAltIcon className="h-5 w-5 text-gray-100" />,
-    "subMenu" : [
+    "subMenu": [
       {
         "name": "form",
-        "route": "form"
+        "route": "/form"
       },
       {
         "name": "form",
-        "route": "form"
+        "route": "/form"
       },
     ]
   },
   {
     "title": "Table",
     "icon": <TableIcon className="h-5 w-5 text-gray-100" />,
-    "subMenu" : [
+    "subMenu": [
       {
         "name": "table",
-        "route": "table"
+        "route": "/table"
       },
       {
         "name": "table",
-        "route": "table"
+        "route": "/table"
       },
       {
         "name": "table",
-        "route": "table"
+        "route": "/table"
       }
     ]
   },
   {
     "title": "Chart",
     "icon": <ChartPieIcon className="h-5 w-5 text-gray-100" />,
-    "subMenu" : [
+    "subMenu": [
       {
         "name": "chart",
-        "route": "chart"
+        "route": "/chart"
       },
       {
         "name": "chart",
-        "route": "chart"
+        "route": "/chart"
       },
       {
         "name": "chart",
-        "route": "chart"
+        "route": "/chart"
       },
       {
         "name": "chart",
-        "route": "chart"
+        "route": "/chart"
       },
     ]
   }
@@ -85,7 +85,7 @@ function App() {
           <span className="text-white text-xl font-medium">Pomegranate</span>
         </div>
         <ul className="flex flex-col text-white space-y-2 text-sm mt-4">
-          {navList.map((n,i) => 
+          {navList.map((n, i) =>
             <NavList title={n.title} subMenu={n.subMenu} key={i}>
               {n.icon}
             </NavList>

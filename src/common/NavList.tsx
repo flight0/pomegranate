@@ -1,6 +1,7 @@
-import React, {useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ChevronRightIcon } from '@heroicons/react/outline';
-import { NavLink } from 'react-router-dom';
+import NavListItem from './NavListItem';
+import { useResolvedPath, useMatch, useLocation } from 'react-router-dom';
 
 interface SubMenu {
     name: string;
@@ -14,23 +15,20 @@ const NavList = ({ title, children, subMenu }: {
 }) => {
     const innerRef = useRef<HTMLDivElement>(null);
     const [expand, setExpand] = useState(false);
-    const [height, setHeight] = useState(0);
+    const location = useLocation();
 
-    useLayoutEffect(() => {
-        const height = innerRef.current?.offsetHeight;
-        console.log(height);
-        height && setHeight(height);
-    },[])
+    useEffect(() => {
+        subMenu.find(m => m.route === location.pathname) && setExpand(true);
+    }, []);
 
     const toggleExpand = () => {
+        console.log(innerRef.current?.offsetHeight);
         setExpand(!expand);
     }
 
-    console.log('render');
-
     return (
         <li>
-            <div className={`pl-2 py-2 mx-2 flex items-center justify-between cursor-pointer rounded-md ${expand && "bg-cyan-800"}`}  onClick={toggleExpand}>
+            <div className={`pl-2 py-2 mx-2 flex items-center justify-between cursor-pointer rounded-md ${expand && "bg-cyan-800"}`} onClick={toggleExpand}>
                 <div className="flex items-center">
                     {children}
                     <span className="ml-2">{title}</span>
@@ -39,15 +37,14 @@ const NavList = ({ title, children, subMenu }: {
                     <ChevronRightIcon className={`h-4 w-4 transition-transform ${expand ? "rotate-90" : "rotate-0"}`} />
                 </div>
             </div>
-            <div className={`flex flex-col space-y-1 mt-2 transition-all duration-300 ease-linear overflow-hidden min-h-0`} ref={innerRef} style={{
-                height: expand ? `${height}px` : (height > 0 ? `0px` : `auto`),
-                visibility: expand ? "visible" : "hidden"
+            <div className={`mt-2 transition-all duration-300 ease-linear overflow-hidden will-change-[height]`} style={{
+                height: expand ? `${innerRef.current?.clientHeight}px` : "0px"
             }}>
-                {subMenu.map((n, i) =>
-                    <NavLink key={i} to={`/${n.route}`} className={({ isActive }) => `${isActive && "bg-cyan-700"} py-2 mx-4 rounded-md hover:bg-cyan-800 hover:rounded-md focus:bg-cyan-700 `}>
-                        <span className='ml-8'>{n.name}</span>
-                    </NavLink>
-                )}
+                <div className='flex flex-col space-y-1' ref={innerRef}>
+                    {subMenu.map((n, i) =>
+                        <NavListItem navData={n} key={i} />
+                    )}
+                </div>
             </div>
         </li>
     );
