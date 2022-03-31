@@ -9,6 +9,8 @@ import Signin from "./signin";
 import Table from './table';
 import Form from './form';
 import Chart from './chart';
+import Componnents from './componnents';
+import NotFound from './notfound';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -17,11 +19,13 @@ ReactDOM.render(
         <Route path="/" element={<App />} >
           <Route index element={<Dashboard />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/table" element={<Table />} />
-          <Route path="/form" element={<Form />} />
-          <Route path="/chart" element={<Chart />} />
+          <Route path="/forms" element={<Form />} />
+          <Route path="/tables" element={<Table />} />
+          <Route path="/charts" element={<Chart />} />
+          <Route path="/componnents" element={<Componnents />} />
         </Route>
-        <Route path="/sign" element={<Signin />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </React.StrictMode>
   </BrowserRouter>

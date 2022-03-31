@@ -176,7 +176,7 @@ const Dashboard = () => {
                 </div>
             </div>
 
-            <table className="w-full mt-6">
+            <table className="w-full mt-6 shadow-md rounded-md">
                 <thead className="bg-slate-50 border-b border-slate-200">
                     <tr>
                         <th className="px-6 py-3 text-left text-sm font-medium text-slate-900 rounded-tl-md">Song</th>

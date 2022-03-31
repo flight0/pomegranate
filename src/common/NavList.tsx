@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ChevronRightIcon } from '@heroicons/react/outline';
 import NavListItem from './NavListItem';
-import { useResolvedPath, useMatch, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 interface SubMenu {
     name: string;
@@ -19,10 +19,9 @@ const NavList = ({ title, children, subMenu }: {
 
     useEffect(() => {
         subMenu.find(m => m.route === location.pathname) && setExpand(true);
-    }, []);
+    }, [location, subMenu]);
 
     const toggleExpand = () => {
-        console.log(innerRef.current?.offsetHeight);
         setExpand(!expand);
     }
 
