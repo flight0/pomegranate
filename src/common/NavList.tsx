@@ -29,7 +29,7 @@ const NavList = ({
     setExpand(!expand);
   };
 
-  const innerHeight = expand ? 0 : innerRef.current?.clientHeight as number;
+  const innerHeight = expand ? innerRef.current?.clientHeight as number : 0;
   return (
     <li>
       <div
