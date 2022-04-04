@@ -13,6 +13,9 @@ npm start
 
 ## Demo
 
-**[Template Demo](https://pomegranate.guixing.fun/)**
+[Template Demo](https://pomegranate.guixing.fun/)
   
 ## Libraries included
+
+* [React](https://reactjs.org/)
+* [Tailwind CSS](https://tailwindcss.com/)
